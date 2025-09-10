@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 
-TOKEN = '7597332801:AAFhEIRsNm-AKWyotxqwga1yIkH1NadDUpI'
+TOKEN = '' # Ваш_token
 API_URL = 'https://api.coingecko.com/api/v3/'
 CRYPTO_PANIC_API_KEY = 'REDACTED_ROTATED_KEY'
 CRYPTO_PANIC_URL = f'https://cryptopanic.com/api/v1/posts/?auth_token={CRYPTO_PANIC_API_KEY}&currencies='
@@ -712,4 +712,5 @@ def main():
     application.run_polling()
 
 if __name__ == '__main__':
+
     main()
