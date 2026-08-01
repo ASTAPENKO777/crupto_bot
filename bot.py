@@ -1,6 +1,8 @@
+import os
 import time
 import requests
 import logging
+from dotenv import load_dotenv
 from telegram import Update, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
 from tenacity import retry, stop_after_attempt, wait_fixed
@@ -13,9 +15,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 
-TOKEN = '' # Ваш_token
+load_dotenv()
+
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
 API_URL = 'https://api.coingecko.com/api/v3/'
-CRYPTO_PANIC_API_KEY = 'REDACTED_ROTATED_KEY'
+CRYPTO_PANIC_API_KEY = os.getenv('CRYPTO_PANIC_API_KEY', '')
 CRYPTO_PANIC_URL = f'https://cryptopanic.com/api/v1/posts/?auth_token={CRYPTO_PANIC_API_KEY}&currencies='
 
 
